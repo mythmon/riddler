@@ -1,0 +1,32 @@
+{
+  "name": "riddler",
+  "version": "0.0.0",
+  "description": "Solve the puzzle. Get points.",
+  "main": "index.js",
+  "dependencies": {
+    "6to5": "^3.4.1",
+    "git-emit": "mythmon/node-git-emit",
+    "git-wrapper": "^0.1.1",
+    "proxied-promise-object": "^0.2.0",
+    "pushover": "^1.3.6",
+    "temp": "^0.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mythmon/riddler"
+  },
+  "keywords": [
+    "git",
+    "game"
+  ],
+  "author": "Mike Cooper <mythmon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mythmon/riddler/issues"
+  },
+  "homepage": "https://github.com/mythmon/riddler"
+}
