@@ -8,7 +8,9 @@ import PromiseProxy from 'proxied-promise-object';
 import Git from 'git-wrapper';
 import _temp from 'temp';
 
-const temp = PromiseProxy(Promise, temp);
+import Runner from './lib/runner.js';
+
+const temp = PromiseProxy(Promise, _temp);
 
 const gitEmit = function(path) {
   return new Promise((resolve, reject) => {
@@ -58,6 +60,7 @@ function onUpdate(repoPath, update) {
   var commit = update.arguments[2];
   var repoName = path.basename(repoPath);
   var checkoutPath;
+  var runner;
 
   temp.mkdir('riddler')
   .then((tmpDir) => {
@@ -65,9 +68,15 @@ function onUpdate(repoPath, update) {
     git = new PromiseProxy(Promise, new Git({'git-dir': repoPath, 'work-tree': checkoutPath}));
     return git.exec('checkout', [commit]);
   })
+  .then(() => {
+    runner = new Runner(checkoutPath);
+    return runner.build();
+  })
+  .then(() => runner.run())
+  .then((result) => update.output(result.trim()))
   .then(() => update.accept())
   .catch((err) => {
-    update.output('Internal error!');
+    update.output('Error!');
     console.error(err.stack || err.trace || err);
     update.reject();
   });
