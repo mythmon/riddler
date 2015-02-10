@@ -1,14 +1,16 @@
-var http = require('http');
-var path = require('path');
-var fs = require('fs');
+import http from 'http';
+import path from 'path';
+import fs from 'fs';
 
-var pushover = require('pushover');
-var _gitEmit = require('git-emit');
-var PromiseProxy = require('proxied-promise-object');
-var Git = require('git-wrapper');
-var temp = PromiseProxy(Promise, require('temp'));
+import pushover from 'pushover';
+import _gitEmit from 'git-emit';
+import PromiseProxy from 'proxied-promise-object';
+import Git from 'git-wrapper';
+import _temp from 'temp';
 
-var gitEmit = function(path) {
+const temp = PromiseProxy(Promise, temp);
+
+const gitEmit = function(path) {
   return new Promise((resolve, reject) => {
     _gitEmit(path, (err, emitter) => {
       if (err) {
@@ -20,7 +22,7 @@ var gitEmit = function(path) {
   });
 }
 
-var REPOS_DIR = 'repos';
+const REPOS_DIR = 'repos';
 
 var repos = pushover(REPOS_DIR);
 var repoHooks = {};
