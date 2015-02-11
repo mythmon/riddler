@@ -1,0 +1,15 @@
+Riddler
+=======
+
+The goal here is to make a puzzle server. Puzzles are published. You write
+code, and push your code to the puzzle server. The server runs your code,
+and compares the output to the puzzle. If you have good output, you win and get points. Otherwise you don't win, and don't get points.
+
+Status:
+
+* [x] Recieve git pushes
+* [x] Run Dockerfiles
+* [ ] Do anything with the output
+* [ ] Puzzle checker
+* [ ] Points
+* [ ] Web UI
