@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "6to5": "^3.4.1",
+    "express": "^4.11.2",
     "git-emit": "mythmon/node-git-emit#master",
     "git-wrapper": "^0.1.1",
     "proxied-promise-object": "^0.2.0",
