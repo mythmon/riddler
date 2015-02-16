@@ -13,7 +13,6 @@
     "rimraf": "^2.2.8",
     "temp": "^0.8.1"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node index.js"
   },
@@ -30,5 +29,22 @@
   "bugs": {
     "url": "https://github.com/mythmon/riddler/issues"
   },
-  "homepage": "https://github.com/mythmon/riddler"
+  "homepage": "https://github.com/mythmon/riddler",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  },
+  "jshintConfig": {
+    "esnext": true,
+    "unused": true,
+    "camelcase": true,
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": 2,
+    "maxlen": 100,
+    "newcap": true,
+    "noempty": true,
+    "quotmark": "single",
+    "undef": true
+  }
 }
