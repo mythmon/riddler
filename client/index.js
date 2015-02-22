@@ -1,55 +1,18 @@
 import React from 'react';
+import ReactRouter from 'react-router';
 
-const App = React.createClass({
-  displayName: 'App',
+import {App} from './components';
+import routes from './routes';
 
-  render() {
-    return (
-      <html>
-        <head>
-          <meta charSet="UTF-8"/>
-          <title>Riddler Puzzle Server</title>
-          <link rel="stylesheet" href="/static/style/base.css"/>
-        </head>
-        <body>
-          <h1>It works!</h1>
-          <Counter/>
+const {RouterHandler} = ReactRouter;
 
-          <script type="text/javascript" src="/static/script/bundle.js"></script>
-        </body>
-      </html>
-    );
-  }
-});
-
-const Counter = React.createClass({
-  displayName: 'Counter',
-
-  getInitialState() {
-    return {
-      count: 0,
-    };
-  },
-
-  addOne() {
-    this.setState({count: this.state.count + 2});
-  },
-
-  render() {
-    return (
-      <div>
-        <span>{this.state.count}</span>
-        <button onClick={this.addOne}>+1</button>
-      </div>
-    );
-  },
-});
-
+// If this is running in the browser, then kick off React, which will turn
+// the static markup the server gave us into live markup with event listeners
+// and React bindings.
 if (typeof window !== 'undefined') {
   window.onload = function() {
-    React.render(<App/>, document);
+    ReactRouter.run(routes, ReactRouter.HistoryLocation, function(Handler, state) {
+      React.render(<Handler/>, document.body);
+    });
   }
 }
-
-export default App;
-
