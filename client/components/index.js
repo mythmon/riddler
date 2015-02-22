@@ -12,7 +12,7 @@ export const Html = React.createClass({
           <script type="text/javascript" src="/static/script/bundle.js"></script>
         </head>
         <body>
-          <div dangerouslySetInnerHTML={{__html: this.props.body}}></div>
+          {this.props.children}
         </body>
       </html>
     );
